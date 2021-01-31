@@ -1,4 +1,7 @@
 import React from 'react'
+import './css/graph-0.1.5.css'
+import './css/state-machine-render.css'
+import './lib/sfn-0.1.5'
 
 class AWSSfnGraph extends React.Component {
   componentDidMount() {
@@ -28,6 +31,26 @@ class AWSSfnGraph extends React.Component {
         this.props.height
       )
     }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.data !== this.props.data) {
+      this.renderStateMachine(
+        this.props.data,
+        this.props.width,
+        this.props.height
+      )
+    }
+  }
+
+  componentWillUnmount() {
+    this.centerBtn.removeEventListener('click', this.handleCenter)
+    this.zoominBtn.removeEventListener('click', this.handleZoomIn)
+    this.zoomoutBtn.removeEventListener('click', this.handleZoomOut)
+
+    this.centerBtn = null
+    this.zoominBtn = null
+    this.zoomoutBtn = null
   }
 
   handleCenter(e) {
@@ -68,34 +91,6 @@ class AWSSfnGraph extends React.Component {
 
     this.hasRenderedOnce = true
     this.lastStateMachineData = data
-  }
-
-  componentDidUpdate(prevProps) {
-    console.log('prevProps', prevProps)
-    if (prevProps.data !== this.props.data) {
-      this.renderStateMachine(
-        this.props.data,
-        this.props.width,
-        this.props.height
-      )
-    }
-  }
-
-  componentWillUnmount() {
-    // this.$el.off('change', this.handleChange)
-    // this.$el.chosen('destroy')
-
-    this.centerBtn.removeEventListener('click', this.handleCenter)
-    this.zoominBtn.removeEventListener('click', this.handleZoomIn)
-    this.zoomoutBtn.removeEventListener('click', this.handleZoomOut)
-
-    this.centerBtn = null
-    this.zoominBtn = null
-    this.zoomoutBtn = null
-  }
-
-  handleChange(e) {
-    // this.props.onChange(e.target.value)
   }
 
   render() {

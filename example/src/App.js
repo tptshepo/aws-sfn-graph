@@ -1,5 +1,7 @@
 import React from 'react'
 
+import 'aws-sfn-graph/src/css/graph-0.1.5.css'
+import 'aws-sfn-graph/src/css/state-machine-render.css'
 import AWSSfnGraph from 'aws-sfn-graph'
 
 const aslData = {
