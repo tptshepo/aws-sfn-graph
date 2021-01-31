@@ -7,6 +7,9 @@
     "prettier/standard",
     "prettier/react"
   ],
+  "globals": {
+    "globalThis": false // means it is not writeable
+  },
   "env": {
     "node": true
   },
