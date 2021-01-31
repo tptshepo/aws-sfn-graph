@@ -4,6 +4,8 @@ import 'aws-sfn-graph/src/css/graph-0.1.5.css'
 import 'aws-sfn-graph/src/css/state-machine-render.css'
 import AWSSfnGraph from 'aws-sfn-graph'
 
+import './App.css';
+
 const aslData = {
   "Comment": "A Hello World example of the Amazon States Language using Pass states",
   "StartAt": "Hello",
@@ -24,7 +26,7 @@ const aslData = {
 const App = () => {
 
   return (
-    <div>
+    <div className="container">
       <AWSSfnGraph data={aslData} width={500} height={500}/>
     </div>
 
