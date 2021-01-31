@@ -13,18 +13,33 @@ npm install --save aws-sfn-graph
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
 import AWSSfnGraph from 'aws-sfn-graph'
 
-const data =
-  '{\r\n  "Comment": "A Hello World example of the Amazon States Language using Pass states",\r\n  "StartAt": "Hello",\r\n  "States": {\r\n    "Hello": {\r\n      "Type": "Pass",\r\n      "Result": "Hello",\r\n      "Next": "World"\r\n    },\r\n    "World": {\r\n      "Type": "Pass",\r\n      "Result": "World",\r\n      "End": true\r\n    }\r\n  }\r\n}'
-
-class Example extends Component {
-  render() {
-    return <AWSSfnGraph data={data} width={500} height={500} />
+const aslData = {
+  Comment:
+    'A Hello World example of the Amazon States Language using Pass states',
+  StartAt: 'Hello',
+  States: {
+    Hello: {
+      Type: 'Pass',
+      Result: 'Hello',
+      Next: 'World'
+    },
+    World: {
+      Type: 'Pass',
+      Result: 'World',
+      End: true
+    }
   }
 }
+
+const App = () => {
+  return <AWSSfnGraph data={aslData} width={500} height={500} />
+}
+
+export default App
 ```
 
 ## License

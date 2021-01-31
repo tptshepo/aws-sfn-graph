@@ -1,0 +1,60 @@
+/*!
+ * GrapheneStateGraph
+ * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * 
+ * GrapheneStateGraph includes the following third-party software/licenses:
+ * 
+ * ** D3.js; version 4.13.0 -- https://d3js.org/
+ * Copyright 2010-2016 Mike Bostock
+ * All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * * Redistributions of source code must retain the above copyright notice, this
+ *   list of conditions and the following disclaimer.
+ * 
+ * * Redistributions in binary form must reproduce the above copyright notice,
+ *   this list of conditions and the following disclaimer in the documentation
+ *   and/or other materials provided with the distribution.
+ * 
+ * * Neither the name of the author nor the names of contributors may be used to
+ *   endorse or promote products derived from this software without specific prior
+ *   written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ * ------
+ * 
+ * ** dagre-d3; version 0.6.3 -- https://github.com/dagrejs/dagre-d3
+ * Copyright (c) 2013 Chris Pettitt
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+@CHARSET "UTF-8";svg{overflow:hidden;margin:auto;display:block;width:100%;height:100%}.node>.shape{stroke:#555;stroke-width:.6px;fill:#fff}.node.state.Container>.shape,.node.state.NotYetStarted>.shape{stroke-dasharray:5 2}.node.state.Failed>.shape,rect.legend.Failed{fill:#de322f}.node.state.CaughtError>.shape,rect.legend.CaughtError{fill:orange}.node.state.Succeeded>.shape,rect.legend.Succeeded{fill:#2bd62e}.node.state.InProgress>.shape,rect.legend.InProgress{fill:#53c9ed}.node.state.Cancelled>.shape,rect.legend.Cancelled{fill:#ddd}.node.anchor>.shape{fill:#ffda75}.node.selected>.shape,.node.state.hovered:not(.selected):not(.NotYetStarted)>.shape{stroke:#555;stroke-width:2px}.node.state.Container.Failed>.shape{fill:#ee9592}.node.state.Container.CaughtError>.shape{fill:#ffd27f}.node.state.Container.Succeeded>.shape{fill:#91ea9a}.node.state.Container.InProgress>.shape{fill:#a9e4f7}.node.state.Container.Cancelled>.shape{fill:#eee}marker{fill:#555}path{stroke:#555;background-color:#555;stroke-width:1px}.node.anchor,.node.state.NotYetStarted{cursor:default}.node.state{cursor:pointer}tspan .label{font-weight:400;font-size:12px;text-shadow:none}#header{text-align:left;padding:5px}#textholder{line-height:30px;height:300px;width:600;float:left;padding:10px}.workflowgraph{position:relative;padding:10px}.tooltip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;text-align:center;background-color:#f1faff;border:1px solid #007dbc;border-radius:2px;color:#16191f;padding:14px;font-family:Arial,Helvetica,sans-serif;font-size:14px;opacity:0;pointer-events:none}

@@ -58,8 +58,9 @@ class AWSSfnGraph extends React.Component {
       height,
       resizeHeight: false
     }
+    const json = typeof data === 'string' ? JSON.parse(data) : data
     this.graph = new globalThis.sfn.StateMachineGraph(
-      JSON.parse(data),
+      json,
       this.containerId,
       options
     )
