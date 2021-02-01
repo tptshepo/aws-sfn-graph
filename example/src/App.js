@@ -50,18 +50,25 @@ const App = () => {
   //   setTimeout(() => setData(aslData2), 6000);
   // }, []);
 
+  const width = 600
+  const height = 600
+
   return (
     <>
       <div className='container'>
         <div className='row'>
           <div className='col-sm'>One of three columns</div>
           <div className='col-sm'>
-            <AWSSfnGraph
-              data={data}
-              width={500}
-              height={500}
-              onError={console.log}
-            />
+            <div
+              style={{ width: width, height: height, backgroundColor: '#fff' }}
+            >
+              <AWSSfnGraph
+                data={data}
+                width={width}
+                height={height}
+                onError={console.log}
+              />
+            </div>
           </div>
           <div className='col-sm'>One of three columns</div>
         </div>

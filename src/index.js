@@ -4,37 +4,38 @@ import './css/state-machine-render.css'
 import './lib/sfn-0.1.5'
 
 const AWSSfnGraph = (props) => {
-  const { data, width, height, onError } = props
+  const { data, width, height, resizeHeight = false, onError } = props
 
   const containerId = useRef()
   let graph = null
 
   useEffect(() => {
-    renderStateMachine(data, width, height)
-  }, [data])
+    renderStateMachine()
+  }, [data, width, height, resizeHeight])
 
-  const handleCenter = (e) => {
-    renderStateMachine(data, width, height)
+  const handleCenter = () => {
+    renderStateMachine()
   }
 
-  const handleZoomIn = (e) => {
+  const handleZoomIn = () => {
     if (graph) {
       graph.zoomIn()
     }
   }
 
-  const handleZoomOut = (e) => {
+  const handleZoomOut = () => {
     if (graph) {
       graph.zoomOut()
     }
   }
 
-  const renderStateMachine = (data, width = 200, height = 200) => {
+  const renderStateMachine = () => {
     try {
+      console.log(containerId.current)
       const options = {
         width,
         height,
-        resizeHeight: false
+        resizeHeight: resizeHeight
       }
       let json
 
@@ -68,7 +69,10 @@ const AWSSfnGraph = (props) => {
 
   return (
     <div className='workflowgraph'>
-      <div ref={containerId}>
+      <div
+        ref={containerId}
+        style={{ flexGrow: 1, padding: 0, border: '1px solid #eaeded' }}
+      >
         <svg />
       </div>
 

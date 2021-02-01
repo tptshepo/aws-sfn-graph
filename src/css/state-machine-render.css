@@ -4,18 +4,8 @@
   --btnLightIconColor: #616161;
 }
 
-/* svg {
-  width: unset;
-  height: unset;
-} */
-
-/* #svgcontainer {
-  flex-grow: 1;
-  padding: 0px;
-} */
-
 .workflowgraph {
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
   display: flex;
   align-items: stretch;
   justify-content: center;
