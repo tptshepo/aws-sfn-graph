@@ -1,17 +1,17 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './css/graph-0.1.5.css'
 import './css/state-machine-render.css'
 import './lib/sfn-0.1.5'
 
 const AWSSfnGraph = (props) => {
-  const { data, width, height, resizeHeight = false, onError } = props
+  const { data, width, height, onError } = props
 
   const containerId = useRef()
-  let graph = null
+  const [graph, setGraph] = useState(null)
 
   useEffect(() => {
     renderStateMachine()
-  }, [data, width, height, resizeHeight])
+  }, [data, width, height])
 
   const handleCenter = () => {
     renderStateMachine()
@@ -31,11 +31,10 @@ const AWSSfnGraph = (props) => {
 
   const renderStateMachine = () => {
     try {
-      console.log(containerId.current)
       const options = {
         width,
         height,
-        resizeHeight: resizeHeight
+        resizeHeight: false
       }
       let json
 
@@ -54,12 +53,13 @@ const AWSSfnGraph = (props) => {
         return
       }
 
-      graph = new globalThis.sfn.StateMachineGraph(
+      const sfnGraph = new globalThis.sfn.StateMachineGraph(
         json,
         containerId.current,
         options
       )
-      graph.render()
+      setGraph(sfnGraph)
+      sfnGraph.render()
     } catch (e) {
       if (onError) {
         onError(e)

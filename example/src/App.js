@@ -71,7 +71,6 @@ const App = () => {
                 data={data}
                 width={width}
                 height={height}
-                resizeHeight
                 onError={console.log}
               />
             </div>
