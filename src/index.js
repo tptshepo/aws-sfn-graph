@@ -34,7 +34,8 @@ const AWSSfnGraph = (props) => {
       const options = {
         width,
         height,
-        resizeHeight: false
+        resizeHeight: false,
+        hideTooltip: true,
       }
       let json
 
