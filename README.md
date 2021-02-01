@@ -36,7 +36,14 @@ const aslData = {
 }
 
 const App = () => {
-  return <AWSSfnGraph data={aslData} width={500} height={500} />
+  return (
+    <AWSSfnGraph
+      data={aslData}
+      width={500}
+      height={500}
+      onError={console.log}
+    />
+  )
 }
 
 export default App

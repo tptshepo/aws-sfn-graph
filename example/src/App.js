@@ -14,6 +14,11 @@ const aslData = `{
     "Hello": {
       "Type": "Pass",
       "Result": "Hello",
+      "Next": "Hello2"
+    },
+    "Hello2": {
+      "Type": "Pass",
+      "Result": "Hello",
       "Next": "World"
     },
     "World": {
@@ -66,6 +71,7 @@ const App = () => {
                 data={data}
                 width={width}
                 height={height}
+                resizeHeight
                 onError={console.log}
               />
             </div>

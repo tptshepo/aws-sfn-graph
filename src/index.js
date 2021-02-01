@@ -69,10 +69,7 @@ const AWSSfnGraph = (props) => {
 
   return (
     <div className='workflowgraph'>
-      <div
-        ref={containerId}
-        style={{ flexGrow: 1, padding: 0, border: '1px solid #eaeded' }}
-      >
+      <div ref={containerId} style={{ flexGrow: 1, padding: 0 }}>
         <svg />
       </div>
 
