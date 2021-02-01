@@ -10,20 +10,6 @@ class AWSSfnGraph extends React.Component {
     this.hasRenderedOnce = false
     this.lastStateMachineData = null
 
-    this.renderStateMachine = this.renderStateMachine.bind(this)
-
-    this.handleCenter = this.handleCenter.bind(this)
-    this.handleZoomIn = this.handleZoomIn.bind(this)
-    this.handleZoomOut = this.handleZoomOut.bind(this)
-
-    this.centerBtn = document.getElementById('center')
-    this.zoominBtn = document.getElementById('zoomin')
-    this.zoomoutBtn = document.getElementById('zoomout')
-
-    this.centerBtn.addEventListener('click', this.handleCenter)
-    this.zoominBtn.addEventListener('click', this.handleZoomIn)
-    this.zoomoutBtn.addEventListener('click', this.handleZoomOut)
-
     if (this.props.data) {
       this.renderStateMachine(
         this.props.data,
@@ -43,17 +29,9 @@ class AWSSfnGraph extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    this.centerBtn.removeEventListener('click', this.handleCenter)
-    this.zoominBtn.removeEventListener('click', this.handleZoomIn)
-    this.zoomoutBtn.removeEventListener('click', this.handleZoomOut)
+  componentWillUnmount() {}
 
-    this.centerBtn = null
-    this.zoominBtn = null
-    this.zoomoutBtn = null
-  }
-
-  handleCenter(e) {
+  handleCenter = (e) => {
     if (this.lastStateMachineData) {
       this.renderStateMachine(
         this.lastStateMachineData,
@@ -63,19 +41,19 @@ class AWSSfnGraph extends React.Component {
     }
   }
 
-  handleZoomIn(e) {
+  handleZoomIn = (e) => {
     if (this.graph) {
       this.graph.zoomIn()
     }
   }
 
-  handleZoomOut(e) {
+  handleZoomOut = (e) => {
     if (this.graph) {
       this.graph.zoomOut()
     }
   }
 
-  renderStateMachine(data, width = 200, height = 200) {
+  renderStateMachine = (data, width = 200, height = 200) => {
     const options = {
       width,
       height,
@@ -101,7 +79,7 @@ class AWSSfnGraph extends React.Component {
         </div>
 
         <div className='graph-buttons-container'>
-          <button id='zoomin'>
+          <button onClick={this.handleZoomIn}>
             <svg
               focusable='false'
               xmlns='http://www.w3.org/2000/svg'
@@ -111,7 +89,7 @@ class AWSSfnGraph extends React.Component {
               <line x1='15' y1='8' x2='1' y2='8' />
             </svg>
           </button>
-          <button id='zoomout'>
+          <button onClick={this.handleZoomOut}>
             <svg
               focusable='false'
               xmlns='http://www.w3.org/2000/svg'
@@ -120,7 +98,7 @@ class AWSSfnGraph extends React.Component {
               <line x1='15' y1='8' x2='1' y2='8' />
             </svg>
           </button>
-          <button id='center'>
+          <button onClick={this.handleCenter}>
             <svg
               focusable='false'
               xmlns='http://www.w3.org/2000/svg'

@@ -44,10 +44,6 @@ svg {
   margin-bottom: 10px;
 }
 
-#center svg circle:nth-child(2) {
-  fill: var(--btnLightIconColor);
-}
-
 .graph-buttons-container button svg {
   width: 14px;
   height: 14px;
