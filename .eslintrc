@@ -8,7 +8,7 @@
     "prettier/react"
   ],
   "globals": {
-    "globalThis": false // means it is not writeable
+    "globalThis": false
   },
   "env": {
     "node": true

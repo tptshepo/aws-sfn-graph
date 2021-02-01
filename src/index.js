@@ -1,24 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './css/graph-0.1.5.css'
 import './css/state-machine-render.css'
 import './lib/sfn-0.1.5'
 
 const AWSSfnGraph = (props) => {
-  const { data, width, height } = props
+  const { data, width, height, onError } = props
 
-  const containerId = '#svgcontainer'
+  const containerId = useRef()
   let graph = null
 
   useEffect(() => {
-    if (data) {
-      renderStateMachine(data, width, height)
-    }
+    renderStateMachine(data, width, height)
   }, [data])
 
   const handleCenter = (e) => {
-    // if (lastStateMachineData) {
     renderStateMachine(data, width, height)
-    // }
   }
 
   const handleZoomIn = (e) => {
@@ -34,19 +30,45 @@ const AWSSfnGraph = (props) => {
   }
 
   const renderStateMachine = (data, width = 200, height = 200) => {
-    const options = {
-      width,
-      height,
-      resizeHeight: false
+    try {
+      const options = {
+        width,
+        height,
+        resizeHeight: false
+      }
+      let json
+
+      if (!data) {
+        return
+      }
+
+      if (typeof data === 'string') {
+        if (data.trim().length === 0) {
+          return
+        }
+        json = JSON.parse(data)
+      } else if (typeof data === 'object') {
+        json = data
+      } else {
+        return
+      }
+
+      graph = new globalThis.sfn.StateMachineGraph(
+        json,
+        containerId.current,
+        options
+      )
+      graph.render()
+    } catch (e) {
+      if (onError) {
+        onError(e)
+      }
     }
-    const json = typeof data === 'string' ? JSON.parse(data) : data
-    graph = new globalThis.sfn.StateMachineGraph(json, containerId, options)
-    graph.render()
   }
 
   return (
     <div className='workflowgraph'>
-      <div id='svgcontainer'>
+      <div ref={containerId}>
         <svg />
       </div>
 
