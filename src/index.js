@@ -95,8 +95,8 @@ class AWSSfnGraph extends React.Component {
 
   render() {
     return (
-      <div>
-        <div id='svgcontainer' className='workflowgraph'>
+      <div className='workflowgraph'>
+        <div id='svgcontainer'>
           <svg />
         </div>
 

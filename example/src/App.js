@@ -23,13 +23,13 @@ const aslData = {
   }
 }
 
-const App = () => {
+const App = () =>  {
 
   return (
-    <div className="container">
-      <AWSSfnGraph data={aslData} width={500} height={500}/>
-    </div>
+    <div  style={{padding: 10, height: 300, width: 500}}>
+      <AWSSfnGraph data={aslData} width={500} height={300}/>
 
+      </div>
   ) 
 }
 
