@@ -73,6 +73,16 @@ const AWSSfnGraph = (props) => {
       </div>
 
       <div className='graph-buttons-container'>
+        <button onClick={handleCenter}>
+          <svg
+            focusable='false'
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 16 16'
+          >
+            <polyline points='10 5 15 5 15 0' />
+            <path d='M15,8a6.95692,6.95692,0,0,1-7,7A6.95692,6.95692,0,0,1,1,8,6.95692,6.95692,0,0,1,8,1a6.86937,6.86937,0,0,1,6.3,4' />
+          </svg>
+        </button>
         <button onClick={handleZoomIn}>
           <svg
             focusable='false'

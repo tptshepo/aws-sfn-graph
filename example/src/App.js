@@ -5,7 +5,7 @@ import 'aws-sfn-graph/src/css/graph-0.1.5.css'
 import 'aws-sfn-graph/src/css/state-machine-render.css'
 import AWSSfnGraph from 'aws-sfn-graph'
 
-import './App.css';
+import './App.css'
 
 const aslData = `{
   "Comment": "A Hello World example of the Amazon States Language using Pass states",
@@ -22,40 +22,52 @@ const aslData = `{
       "End": true
     }
   }
-}`;
+}`
 
 const aslData2 = {
-  "Comment": "A Hello World example of the Amazon States Language using Pass states",
-  "StartAt": "Hello2",
-  "States": {
-    "Hello2": {
-      "Type": "Pass",
-      "Result": "Hello",
-      "Next": "World"
+  Comment:
+    'A Hello World example of the Amazon States Language using Pass states',
+  StartAt: 'Hello2',
+  States: {
+    Hello2: {
+      Type: 'Pass',
+      Result: 'Hello',
+      Next: 'World'
     },
-    "World": {
-      "Type": "Pass",
-      "Result": "World",
-      "End": true
+    World: {
+      Type: 'Pass',
+      Result: 'World',
+      End: true
     }
   }
 }
 
-const App = () =>  {
-  const [data, setData ] = useState(aslData);
+const App = () => {
+  const [data, setData] = useState(aslData)
 
   // useEffect(() => {
   //   setTimeout(() => setData(aslData), 3000);
   //   setTimeout(() => setData(aslData2), 6000);
-  // }, []);  
+  // }, []);
 
   return (
     <>
-    <div style={{padding: 10, height: 300, width: 500}}>
-      <AWSSfnGraph data={data} width={500} height={300} onError={console.log}/>
-    </div>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-sm'>One of three columns</div>
+          <div className='col-sm'>
+            <AWSSfnGraph
+              data={data}
+              width={500}
+              height={500}
+              onError={console.log}
+            />
+          </div>
+          <div className='col-sm'>One of three columns</div>
+        </div>
+      </div>
     </>
-  ) 
+  )
 }
 
 export default App

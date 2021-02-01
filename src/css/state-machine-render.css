@@ -4,15 +4,15 @@
   --btnLightIconColor: #616161;
 }
 
-svg {
+/* svg {
   width: unset;
   height: unset;
-}
+} */
 
-#svgcontainer {
+/* #svgcontainer {
   flex-grow: 1;
   padding: 0px;
-}
+} */
 
 .workflowgraph {
   background-color: #f9f9f9;
@@ -23,8 +23,8 @@ svg {
 
 .graph-buttons-container {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  left: 2rem;
+  top: 2rem;
   display: flex;
   flex-direction: column;
   z-index: 1000;
@@ -54,7 +54,12 @@ svg {
   opacity: 0.7;
 }
 
+.graph-buttons-container button path {
+  stroke-width: 2px;
+}
+
 .graph-buttons-container button line,
+.graph-buttons-container button path,
 .graph-buttons-container button circle {
   stroke: var(--btnLightIconColor);
   fill: transparent;
