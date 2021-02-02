@@ -72,6 +72,7 @@ const App = () => {
                 width={width}
                 height={height}
                 onError={console.log}
+                hideToolbar
               />
             </div>
           </div>
