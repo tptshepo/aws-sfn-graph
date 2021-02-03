@@ -37,17 +37,20 @@ const AWSSfnGraph = (props) => {
     renderStateMachine(data)
   }, [data, width, height])
 
-  const handleCenter = () => {
+  const handleCenter = (e) => {
+    e.preventDefault()
     renderStateMachine(data)
   }
 
-  const handleZoomIn = () => {
+  const handleZoomIn = (e) => {
+    e.preventDefault()
     if (graph) {
       graph.zoomIn()
     }
   }
 
-  const handleZoomOut = () => {
+  const handleZoomOut = (e) => {
+    e.preventDefault()
     if (graph) {
       graph.zoomOut()
     }
