@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './css/graph-0.1.5.css'
 import './css/state-machine-render.css'
 import './lib/sfn-0.1.5'
 
 const aslError = {
-  Comment:
-    'Error state',
+  Comment: 'Error state',
   StartAt: 'Error found in state definition',
   States: {
     'Error found in state definition': {
@@ -17,8 +16,7 @@ const aslError = {
 }
 
 const aslEmpty = {
-  Comment:
-    'Error state',
+  Comment: 'Error state',
   StartAt: 'State definition not found',
   States: {
     'State definition not found': {
@@ -66,7 +64,7 @@ const AWSSfnGraph = (props) => {
       let json
 
       if (!renderData) {
-        renderStateMachine(aslEmpty, true);
+        renderStateMachine(aslEmpty, true)
         return
       }
 
@@ -78,7 +76,7 @@ const AWSSfnGraph = (props) => {
       } else if (typeof renderData === 'object') {
         json = renderData
       } else {
-        return 
+        return
       }
 
       const sfnGraph = new globalThis.sfn.StateMachineGraph(
@@ -86,7 +84,6 @@ const AWSSfnGraph = (props) => {
         containerId.current,
         options
       )
-      console.log(sfnGraph);
       setGraph(sfnGraph)
       sfnGraph.render()
     } catch (e) {
@@ -94,7 +91,7 @@ const AWSSfnGraph = (props) => {
         onError(e)
       }
       if (!errorRender) {
-        renderStateMachine(aslError, true);
+        renderStateMachine(aslError, true)
       }
     }
   }

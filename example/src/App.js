@@ -2,7 +2,7 @@
 import AWSSfnGraph from 'aws-sfn-graph'
 import 'aws-sfn-graph/src/css/graph-0.1.5.css'
 import 'aws-sfn-graph/src/css/state-machine-render.css'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 
 const aslData = `{
@@ -49,14 +49,13 @@ const aslDataError = `{
   }
 }`
 
-
 const App = () => {
   const [data, setData] = useState()
 
   useEffect(() => {
-    setTimeout(() => setData(aslData), 3000);
-    setTimeout(() => setData(aslDataError), 6000);
-  }, []);
+    setTimeout(() => setData(aslData), 3000)
+    setTimeout(() => setData(aslDataError), 6000)
+  }, [])
 
   const width = 600
   const height = 600
