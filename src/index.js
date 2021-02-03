@@ -3,6 +3,32 @@ import './css/graph-0.1.5.css'
 import './css/state-machine-render.css'
 import './lib/sfn-0.1.5'
 
+const aslError = {
+  Comment:
+    'Error state',
+  StartAt: 'Error found in state definition',
+  States: {
+    'Error found in state definition': {
+      Type: 'Pass',
+      Result: 'World',
+      End: true
+    }
+  }
+}
+
+const aslEmpty = {
+  Comment:
+    'Error state',
+  StartAt: 'State definition not found',
+  States: {
+    'State definition not found': {
+      Type: 'Pass',
+      Result: 'World',
+      End: true
+    }
+  }
+}
+
 const AWSSfnGraph = (props) => {
   const { data, width, height, onError, hideToolbar = false } = props
 
@@ -10,11 +36,11 @@ const AWSSfnGraph = (props) => {
   const [graph, setGraph] = useState(null)
 
   useEffect(() => {
-    renderStateMachine()
+    renderStateMachine(data)
   }, [data, width, height])
 
   const handleCenter = () => {
-    renderStateMachine()
+    renderStateMachine(data)
   }
 
   const handleZoomIn = () => {
@@ -29,7 +55,7 @@ const AWSSfnGraph = (props) => {
     }
   }
 
-  const renderStateMachine = () => {
+  const renderStateMachine = (renderData, errorRender = false) => {
     try {
       const options = {
         width,
@@ -39,19 +65,20 @@ const AWSSfnGraph = (props) => {
       }
       let json
 
-      if (!data) {
+      if (!renderData) {
+        renderStateMachine(aslEmpty, true);
         return
       }
 
-      if (typeof data === 'string') {
-        if (data.trim().length === 0) {
+      if (typeof renderData === 'string') {
+        if (renderData.trim().length === 0) {
           return
         }
-        json = JSON.parse(data)
-      } else if (typeof data === 'object') {
-        json = data
+        json = JSON.parse(renderData)
+      } else if (typeof renderData === 'object') {
+        json = renderData
       } else {
-        return
+        return 
       }
 
       const sfnGraph = new globalThis.sfn.StateMachineGraph(
@@ -59,11 +86,15 @@ const AWSSfnGraph = (props) => {
         containerId.current,
         options
       )
+      console.log(sfnGraph);
       setGraph(sfnGraph)
       sfnGraph.render()
     } catch (e) {
       if (onError) {
         onError(e)
+      }
+      if (!errorRender) {
+        renderStateMachine(aslError, true);
       }
     }
   }

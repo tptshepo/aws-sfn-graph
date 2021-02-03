@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react'
-
+import AWSSfnGraph from 'aws-sfn-graph'
 import 'aws-sfn-graph/src/css/graph-0.1.5.css'
 import 'aws-sfn-graph/src/css/state-machine-render.css'
-import AWSSfnGraph from 'aws-sfn-graph'
-
+import React, { useState, useEffect } from 'react'
 import './App.css'
 
 const aslData = `{
@@ -29,31 +27,36 @@ const aslData = `{
   }
 }`
 
-const aslData2 = {
-  Comment:
-    'A Hello World example of the Amazon States Language using Pass states',
-  StartAt: 'Hello2',
-  States: {
-    Hello2: {
-      Type: 'Pass',
-      Result: 'Hello',
-      Next: 'World'
+const aslDataError = `{
+  "Comment": "A Hello World example of the Amazon States Language using Pass states",
+  "StartAt": "Hello",
+  "States": 
+    "Hello": {
+      "Type": "Pass",
+      "Result": "Hello",
+      "Next": "Hello2"
     },
-    World: {
-      Type: 'Pass',
-      Result: 'World',
-      End: true
+    "Hello2": {
+      "Type": "Pass",
+      "Result": "Hello",
+      "Next": "World"
+    },
+    "World": {
+      "Type": "Pass",
+      "Result": "World",
+      "End": true
     }
   }
-}
+}`
+
 
 const App = () => {
-  const [data, setData] = useState(aslData)
+  const [data, setData] = useState()
 
-  // useEffect(() => {
-  //   setTimeout(() => setData(aslData), 3000);
-  //   setTimeout(() => setData(aslData2), 6000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => setData(aslData), 3000);
+    setTimeout(() => setData(aslDataError), 6000);
+  }, []);
 
   const width = 600
   const height = 600
@@ -72,7 +75,6 @@ const App = () => {
                 width={width}
                 height={height}
                 onError={console.log}
-                hideToolbar
               />
             </div>
           </div>
