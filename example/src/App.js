@@ -2,30 +2,26 @@
 import AWSSfnGraph from 'aws-sfn-graph'
 import 'aws-sfn-graph/src/css/graph-0.1.5.css'
 import 'aws-sfn-graph/src/css/state-machine-render.css'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 
-const aslData = `{
-  "Comment": "A Hello World example of the Amazon States Language using Pass states",
-  "StartAt": "Hello",
-  "States": {
-    "Hello": {
-      "Type": "Pass",
-      "Result": "Hello",
-      "Next": "Hello2"
+const aslData = {
+  Comment:
+    'A Hello World example of the Amazon States Language using Pass states',
+  StartAt: 'Hello',
+  States: {
+    Hello: {
+      Type: 'Pass',
+      Result: 'Hello',
+      Next: 'World'
     },
-    "Hello2": {
-      "Type": "Pass",
-      "Result": "Hello",
-      "Next": "World"
-    },
-    "World": {
-      "Type": "Pass",
-      "Result": "World",
-      "End": true
+    World: {
+      Type: 'Pass',
+      Result: 'World',
+      End: true
     }
   }
-}`
+}
 
 const aslDataError = `{
   "Comment": "A Hello World example of the Amazon States Language using Pass states",
@@ -50,12 +46,12 @@ const aslDataError = `{
 }`
 
 const App = () => {
-  const [data, setData] = useState()
+  const [data, setData] = useState(aslData)
 
-  useEffect(() => {
-    setTimeout(() => setData(aslData), 3000)
-    setTimeout(() => setData(aslDataError), 6000)
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(() => setData(aslData), 3000)
+  //   setTimeout(() => setData(aslDataError), 6000)
+  // }, [])
 
   const width = 600
   const height = 600

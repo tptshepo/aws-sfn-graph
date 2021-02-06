@@ -47,6 +47,10 @@ const App = () => {
 export default App
 ```
 
+## Results
+
+![alt text](aws-sfn-graph.png "Graph")
+
 ## License
 
 MIT © [tptshepo](https://github.com/tptshepo)
