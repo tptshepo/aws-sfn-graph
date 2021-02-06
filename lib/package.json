@@ -1,6 +1,6 @@
 {
   "name": "@tshepomgaga/aws-sfn-graph",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "main": "index.js",
   "private": false,
   "engines": {

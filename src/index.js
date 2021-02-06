@@ -15,6 +15,18 @@ const aslError = {
   }
 }
 
+const aslTypeError = {
+  Comment: 'Error state',
+  StartAt: 'Type error found in state definition',
+  States: {
+    'Type error found in state definition': {
+      Type: 'Pass',
+      Result: 'World',
+      End: true
+    }
+  }
+}
+
 const aslEmpty = {
   Comment: 'Error state',
   StartAt: 'State definition not found',
@@ -65,6 +77,8 @@ const AWSSfnGraph = (props) => {
         hideTooltip: true
       }
       let json
+      // console.log('renderData type:', typeof renderData)
+      // console.log('renderData data:', renderData)
 
       if (!renderData) {
         renderStateMachine(aslEmpty, true)
@@ -73,12 +87,14 @@ const AWSSfnGraph = (props) => {
 
       if (typeof renderData === 'string') {
         if (renderData.trim().length === 0) {
+          renderStateMachine(aslEmpty, true)
           return
         }
         json = JSON.parse(renderData)
       } else if (typeof renderData === 'object') {
         json = renderData
       } else {
+        renderStateMachine(aslTypeError, true)
         return
       }
 

@@ -26,7 +26,7 @@ const aslData = {
 const aslDataError = `{
   "Comment": "A Hello World example of the Amazon States Language using Pass states",
   "StartAt": "Hello",
-  "States": 
+  "States": {
     "Hello": {
       "Type": "Pass",
       "Result": "Hello",
