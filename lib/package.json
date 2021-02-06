@@ -1,0 +1,30 @@
+{
+  "name": "@tshepomgaga/aws-sfn-graph",
+  "version": "0.0.2",
+  "main": "index.js",
+  "private": false,
+  "engines": {
+    "node": ">=6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engineStrict": true,
+  "preferGlobal": true,
+  "description": "Visualise the AWS Step Functions ASL JSON.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tptshepo/aws-sfn-graph.git"
+  },
+  "keywords": [
+    "aws",
+    "graph",
+    "workflow"
+  ],
+  "author": "Tshepo Mgaga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tptshepo/aws-sfn-graph/issues"
+  },
+  "homepage": "https://github.com/tptshepo/aws-sfn-graph#readme"
+}

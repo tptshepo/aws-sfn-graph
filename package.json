@@ -12,7 +12,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --format modern --css-modules false",
+    "build": "microbundle-crl --format modern --css-modules false && cp dist/index.modern.css lib/index.css && cp dist/index.modern.js lib/index.js && cp dist/index.modern.js.map lib/index.js.map",
     "start": "microbundle-crl watch --format modern --css-modules false",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
