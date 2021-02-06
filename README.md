@@ -1,8 +1,6 @@
-# aws-sfn-graph
+# AWS Step Functions Graph
 
-> Visualise the AWS Step Functions ASL JSON.
-
-[![NPM](https://img.shields.io/npm/v/aws-sfn-graph.svg)](https://www.npmjs.com/package/aws-sfn-graph) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+React library to visualise the AWS Step Functions ASL JSON.
 
 ## Install
 
