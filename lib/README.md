@@ -13,7 +13,8 @@ npm install --save aws-sfn-graph
 ```jsx
 import React from 'react'
 
-import AWSSfnGraph from 'aws-sfn-graph'
+import AWSSfnGraph from '@tshepomgaga/aws-sfn-graph';
+import '@tshepomgaga/aws-sfn-graph/index.css';
 
 const aslData = {
   Comment:
